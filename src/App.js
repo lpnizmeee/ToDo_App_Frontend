@@ -25,7 +25,7 @@ class App extends Component {
   //to refresh the list
   refreshList = () => {
     axios
-      .get("http://localhost:8000/api/tasks/")
+      .get(`${process.env.BACKEND_URL}/api/tasks/`)
       .then((res) => this.setState({ taskList: res.data }))
       .catch((err) => console.log(err));
   };
@@ -40,19 +40,19 @@ class App extends Component {
     this.toggle();
     if (item.id) {
       axios
-        .put(`http://localhost:8000/api/tasks/${item.id}/`, item)
+        .put(`${process.env.BACKEND_URL}/api/tasks/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("http://localhost:8000/api/tasks/", item)
+      .post(`${process.env.BACKEND_URL}/api/tasks/`, item)
       .then((res) => this.refreshList());
   };
 
   //to handle the delete button
   handleDelete = (item) => {
     axios
-      .delete(`http://localhost:8000/api/tasks/${item.id}/`)
+      .delete(`${process.env.BACKEND_URL}/api/tasks/${item.id}/`)
       .then((res) => this.refreshList());
     return;
   };
