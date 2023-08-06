@@ -3,6 +3,8 @@ import "./App.css";
 import CustomModal from "./components/Modal";
 import axios from "axios";
 
+axios.defaults.headers.common["Accept"] = "application/json";
+
 class App extends Component {
   constructor(props) {
     super(props);
