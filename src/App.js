@@ -28,7 +28,10 @@ class App extends Component {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/api/tasks/`)
       // .get(`http://localhost:8000/api/tasks/`)
-      .then((res) => this.setState({ taskList: res.data }))
+      .then((res) => {
+        console.log("res backend");
+        this.setState({ taskList: res.data });
+      })
       .catch((err) => console.log(err));
   };
 
