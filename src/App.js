@@ -3,11 +3,6 @@ import "./App.css";
 import CustomModal from "./components/Modal";
 import axios from "axios";
 
-axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-axios.defaults.headers.put["Content-Type"] = "application/json";
-axios.defaults.headers.put["Access-Control-Allow-Origin"] = "*";
-
 class App extends Component {
   constructor(props) {
     super(props);
