@@ -3,7 +3,10 @@ import "./App.css";
 import CustomModal from "./components/Modal";
 import axios from "axios";
 
-axios.defaults.headers.common["Accept"] = "application/json";
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+axios.defaults.headers.put["Content-Type"] = "application/json";
+axios.defaults.headers.put["Access-Control-Allow-Origin"] = "*";
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +32,6 @@ class App extends Component {
     // console.log(process.env);
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/api/tasks/`)
-      // .get(`http://localhost:8000/api/tasks/`)
       .then((res) => {
         console.log("res backend");
         this.setState({ taskList: res.data });
