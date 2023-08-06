@@ -136,7 +136,7 @@ class App extends Component {
             className="btn btn-danger marg-right-5"
             onClick={() => {
               axios
-                .delete(`http://localhost:8000/api/tasks/${item.id}/`)
+                .delete(`${process.env.REACT_APP_BACKEND_URL}/${item.id}/`)
                 .then((res) => this.refreshList());
               return;
             }}
